@@ -1,0 +1,118 @@
+{
+    "Base":  {
+                 "Name"    :  "#poolName",
+                 "DisplayName":  "#poolName",
+                 "AccessGroup":  "Root",
+                 "Description":  "created with vRA"
+             },
+    "DesktopSettings":  {
+							"enabled": true,
+							"deleting": false,
+							"connectionServerRestrictions": null,
+							"logoffSettings":  {
+													"powerPolicy": "TAKE_NO_POWER_ACTION",
+													"automaticLogoffPolicy": "NEVER",
+													"automaticLogoffMinutes": 999,
+													"allowUsersToResetMachines": false,
+													"allowMultipleSessionsPerUser": false,
+													"deleteOrRefreshMachineAfterLogoff": "NEVER",
+													"refreshOsDiskAfterLogoff": "NEVER",
+													"refreshPeriodDaysForReplicaOsDisk": 5,
+													"refreshThresholdPercentageForReplicaOsDisk": 10
+											   },
+							"displayProtocolSettings": {
+															"supportedDisplayProtocols": ["PCOIP", "BLAST" ],
+															"defaultDisplayProtocol": "BLAST",
+															"allowUsersToChooseProtocol": true,
+															"pcoipDisplaySettings": {
+																						"renderer3D": "MANAGE_BY_VSPHERE_CLIENT",
+																						"enableGRIDvGPUs": true,
+																						"vRamSizeMB": 96,
+																						"maxNumberOfMonitors": 2,
+																						"maxResolutionOfAnyOneMonitor": "WUXGA"
+																					},
+															"enableHTMLAccess": true
+													   },
+							"flashSettings": {
+												"quality": "NO_CONTROL",
+												"throttling": "DISABLED"
+											 },
+							"mirageConfigurationOverrides": {
+																"overrideGlobalSetting": false,
+																"enabled": false,
+																"url": false
+															}
+	                    },
+    "Type":  "AUTOMATED",
+    "AutomatedDesktopSpec":  {
+                                 "ProvisioningType":  "VIRTUAL_CENTER",
+                                 "VirtualCenter":  null,
+                                 "UserAssignment":  {
+                                                        "UserAssignment":  "DEDICATED",
+                                                        "AutomaticAssignment":  true
+                                                    },
+                                 "VmNamingSpec":  {
+                                                      "NamingMethod":  "PATTERN",
+                                                      "PatternNamingSettings":  {
+                                                                                    "NamingPattern":  "#pattern",
+                                                                                    "MaxNumberOfMachines":  #maxMachine,
+                                                                                    "NumberOfSpareMachines":  1,
+                                                                                    "ProvisioningTime":  "UP_FRONT",
+                                                                                    "MinNumberOfMachines":  1
+                                                                                },
+                                                      "SpecificNamingSpec":  null
+                                                  },
+                                 "VirtualCenterProvisioningSettings":  {
+                                                                           "EnableProvisioning":  true,
+                                                                           "StopProvisioningOnError":  true,
+                                                                           "MinReadyVMsOnVComposerMaintenance":  0,
+                                                                           "VirtualCenterProvisioningData":  {
+                                                                                                                 "Template":  "#template",
+                                                                                                                 "ParentVm":  null,
+                                                                                                                 "Snapshot":  null,
+                                                                                                                 "Datacenter":  null,
+                                                                                                                 "VmFolder":  "Provisioned Pools",
+                                                                                                                 "HostOrCluster":  "VxRail-Virtual-SAN-Cluster-aec830d3-1a9a-4016-a55b-3b5e2a3f62af",
+                                                                                                                 "ResourcePool":  "VxRail-Virtual-SAN-Cluster-aec830d3-1a9a-4016-a55b-3b5e2a3f62af"
+                                                                                                             },
+                                                                           "VirtualCenterStorageSettings":  {
+                                                                                                                "Datastores":  [
+                                                                                                                                   {
+                                                                                                                                       "Datastore": "VxRail-Virtual-SAN-Datastore-aec830d3-1a9a-4016-a55b-3b5e2a3f62af",
+                                                                                                                                       "StorageOvercommit":  "UNBOUNDED"
+                                                                                                                                   }
+                                                                                                                               ],
+                                                                                                                "UseVSan":  true,
+                                                                                                                "ViewComposerStorageSettings":  null,
+                                                                                                                "ViewStorageAcceleratorSettings":  {
+                                                                                                                                                       "UseViewStorageAccelerator":  false,
+                                                                                                                                                       "ViewComposerDiskTypes":  null,
+                                                                                                                                                       "RegenerateViewStorageAcceleratorDays":  null,
+                                                                                                                                                       "BlackoutTimes":  null
+                                                                                                                                                   }
+                                                                                                            },
+                                                                           "VirtualCenterNetworkingSettings":  {
+                                                                                                                   "Nics":  null
+                                                                                                               }
+                                                                       },
+                                 "VirtualCenterManagedCommonSettings":  {
+                                                                            "TransparentPageSharingScope":  "VM"
+                                                                        },
+                                 "CustomizationSettings":  {
+                                                               "CustomizationType":  "SYS_PREP",
+                                                               "DomainAdministrator":  null,
+                                                               "AdContainer":  "CN=Computers",
+                                                               "ReusePreExistingAccounts":  false,
+                                                               "NoCustomizationSettings":  {
+                                                                                               "DoNotPowerOnVMsAfterCreation":  false
+                                                                                           },
+                                                               "SysprepCustomizationSettings":  {"customizationSpec" : "#custSpec"},
+                                                               "QuickprepCustomizationSettings":  null,
+                                                               "CloneprepCustomizationSettings":  null
+                                                           }
+                             },
+    "ManualDesktopSpec":  null,
+    "RdsDesktopSpec":  null,
+    "GlobalEntitlementData":  null,
+    "NetBiosName" : "adviewdev"
+}
