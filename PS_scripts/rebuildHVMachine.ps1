@@ -1,4 +1,4 @@
-Connect-HVServer -server s365d1vrexmc01.in365.corpintra.net -user a365_s_osdeploy@apac.corpdir.net -password D!cv@dm!N%9876543210 -Domain apac.corpdir.net
+Connect-HVServer -server horizon_fqdn -user admin@dom.ain -password password -Domain dom.ain
 function Get-ViewAPIService {
   param(
     [Parameter(Mandatory = $false)]
